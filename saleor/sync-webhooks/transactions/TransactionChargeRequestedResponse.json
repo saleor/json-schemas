@@ -17,7 +17,7 @@
       "required": ["result", "amount", "message"],
       "properties": {
         "amount": {
-          "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
+          "$ref": "/saleor/definitions.json#/$defs/PositiveDecimal"
         },
         "externalUrl": {
           "type": "string"
@@ -32,7 +32,7 @@
           "$ref": "#/$defs/TransactionChargeRequestedAllowedResult"
         },
         "time": {
-          "$ref": "/schemas/definitions#/$defs/DateTime"
+          "$ref": "/saleor/definitions.json#/$defs/DateTime"
         }
       },
       "additionalProperties": false

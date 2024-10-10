@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://saleor.github.io/json-schemas/saleor/definitions.json",
+  "$defs": {
+    "DateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "JSON": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true
+    },
+    "PositiveDecimal": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

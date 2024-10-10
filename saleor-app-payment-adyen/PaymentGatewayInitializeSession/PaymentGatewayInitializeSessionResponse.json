@@ -18,10 +18,10 @@
               "enum": ["LIVE", "TEST"]
             },
             "errors": {
-              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
             },
             "paymentMethodsResponse": {
-              "$ref": "../definitions.json#/$defs/JSON"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/JSON"
             }
           },
           "additionalProperties": true
@@ -31,10 +31,10 @@
           "required": ["applePayMerchantSession"],
           "properties": {
             "applePayMerchantSession": {
-              "$ref": "../definitions.json#/$defs/JSON"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/JSON"
             },
             "errors": {
-              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
             }
           },
           "additionalProperties": false
@@ -44,10 +44,10 @@
           "required": ["giftCardBalanceResponse"],
           "properties": {
             "errors": {
-              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
             },
             "giftCardBalanceResponse": {
-              "$ref": "../definitions.json#/$defs/JSON"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/JSON"
             }
           },
           "additionalProperties": false
@@ -57,10 +57,10 @@
           "required": ["orderCreateResponse"],
           "properties": {
             "errors": {
-              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
             },
             "orderCreateResponse": {
-              "$ref": "../definitions.json#/$defs/JSON"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/JSON"
             }
           },
           "additionalProperties": false
@@ -70,10 +70,10 @@
           "required": ["orderCancelResponse"],
           "properties": {
             "errors": {
-              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
             },
             "orderCancelResponse": {
-              "$ref": "../definitions.json#/$defs/JSON"
+              "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/JSON"
             }
           },
           "additionalProperties": false
