@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/PaymentGatewayInitializeSession/PaymentGatewayInitializeSessionRequestData",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": ["action", "validationURL", "domain", "merchantIdentifier", "merchantName"],
+      "properties": {
+        "action": {
+          "const": "APPLEPAY_onvalidatemerchant"
+        },
+        "domain": {
+          "type": "string"
+        },
+        "merchantIdentifier": {
+          "type": "string"
+        },
+        "merchantName": {
+          "type": "string"
+        },
+        "validationURL": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["action", "paymentMethod"],
+      "properties": {
+        "action": {
+          "const": "checkBalance"
+        },
+        "paymentMethod": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["action"],
+      "properties": {
+        "action": {
+          "const": "createOrder"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["action", "orderData", "pspReference"],
+      "properties": {
+        "action": {
+          "const": "cancelOrder"
+        },
+        "orderData": {
+          "type": "string"
+        },
+        "pspReference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

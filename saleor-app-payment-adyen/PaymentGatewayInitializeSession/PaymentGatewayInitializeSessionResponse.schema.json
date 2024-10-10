@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/PaymentGatewayInitializeSession/PaymentGatewayInitializeSessionResponse",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": ["paymentMethodsResponse", "clientKey", "environment"],
+          "properties": {
+            "clientKey": {
+              "type": "string"
+            },
+            "environment": {
+              "type": "string",
+              "enum": ["LIVE", "TEST"]
+            },
+            "errors": {
+              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+            },
+            "paymentMethodsResponse": {
+              "$ref": "../definitions.json#/$defs/JSON"
+            }
+          },
+          "additionalProperties": true
+        },
+        {
+          "type": "object",
+          "required": ["applePayMerchantSession"],
+          "properties": {
+            "applePayMerchantSession": {
+              "$ref": "../definitions.json#/$defs/JSON"
+            },
+            "errors": {
+              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["giftCardBalanceResponse"],
+          "properties": {
+            "errors": {
+              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+            },
+            "giftCardBalanceResponse": {
+              "$ref": "../definitions.json#/$defs/JSON"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["orderCreateResponse"],
+          "properties": {
+            "errors": {
+              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+            },
+            "orderCreateResponse": {
+              "$ref": "../definitions.json#/$defs/JSON"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["orderCancelResponse"],
+          "properties": {
+            "errors": {
+              "$ref": "../definitions.json#/$defs/SyncWebhookAppErrors"
+            },
+            "orderCancelResponse": {
+              "$ref": "../definitions.json#/$defs/JSON"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/TransactionChargeRequested/TransactionChargeRequestedResponse",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": ["pspRefernce"],
+      "properties": {
+        "pspReference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["result", "amount", "message"],
+      "properties": {
+        "amount": {
+          "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
+        },
+        "externalUrl": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "pspReference": {
+          "type": "string"
+        },
+        "result": {
+          "$ref": "#/$defs/TransactionChargeRequestedAllowedResult"
+        },
+        "time": {
+          "$ref": "/schemas/definitions#/$defs/DateTime"
+        }
+      },
+      "additionalProperties": false
+    }
+  ],
+  "$defs": {
+    "TransactionChargeRequestedAllowedResult": {
+      "type": "string",
+      "enum": ["CHARGE_SUCCESS", "CHARGE_FAILURE"]
+    }
+  }
+}

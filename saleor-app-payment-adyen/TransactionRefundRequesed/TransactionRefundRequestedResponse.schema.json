@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/TransactionRefundRequesed/TransactionRefundRequestedResponse",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "amount": {
+      "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
+    },
+    "externalUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "message": {
+      "type": "string"
+    },
+    "pspReference": {
+      "type": "string"
+    },
+    "result": {
+      "$ref": "#/$defs/TransactionRefundRequestedAllowedResult"
+    },
+    "time": {
+      "$ref": "/schemas/definitions#/$defs/DateTime"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "TransactionRefundRequestedAllowedResult": {
+      "type": "string",
+      "enum": ["REFUND_SUCCESS", "REFUND_FAILURE"]
+    }
+  }
+}

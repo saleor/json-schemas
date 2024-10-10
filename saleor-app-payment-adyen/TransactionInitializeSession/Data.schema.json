@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/TransactionInitializeSession/Data",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "paymentResponse": { "$ref": "definitions.json#/definitions/JSON" },
+    "errors": { "$ref": "definitions.json#/definitions/SyncWebhookAppErrors" }
+  },
+  "required": ["paymentResponse"]
+}

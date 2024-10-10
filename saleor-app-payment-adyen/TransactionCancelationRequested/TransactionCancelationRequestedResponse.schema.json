@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/TransactionCancelationRequested/TransactionCancelationRequestedResponse",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "amount": {
+      "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
+    },
+    "externalUrl": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "pspReference": {
+      "type": "string"
+    },
+    "result": {
+      "$ref": "#/$defs/TransactionCancelationRequestedAllowedResult"
+    },
+    "time": {
+      "$ref": "/schemas/definitions#/$defs/DateTime"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "TransactionCancelationRequestedAllowedResult": {
+      "type": "string",
+      "enum": ["CANCEL_SUCCESS", "CANCEL_FAILURE"]
+    }
+  }
+}

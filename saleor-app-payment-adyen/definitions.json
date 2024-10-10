@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/schemas/definitions",
+  "$defs": {
+    "DateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "JSON": {
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true
+    },
+    "PositiveDecimal": {
+      "type": "number",
+      "minimum": 0
+    },
+    "SyncWebhookAppError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "details": {
+          "$ref": "#/$defs/JSON"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SyncWebhookAppErrors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SyncWebhookAppError"
+      }
+    },
+    "TransactionActions": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string",
+            "const": "CHARGE"
+          },
+          {
+            "type": "string",
+            "const": "REFUND"
+          },
+          {
+            "type": "string",
+            "const": "CANCEL"
+          }
+        ]
+      }
+    },
+    "TransactionEventType": {
+      "type": "string",
+      "enum": [
+        "AUTHORIZATION_SUCCESS",
+        "AUTHORIZATION_FAILURE",
+        "AUTHORIZATION_ADJUSTMENT",
+        "AUTHORIZATION_REQUEST",
+        "CHARGE_SUCCESS",
+        "CHARGE_FAILURE",
+        "CHARGE_BACK",
+        "CHARGE_REQUEST",
+        "REFUND_SUCCESS",
+        "REFUND_FAILURE",
+        "REFUND_REVERSE",
+        "REFUND_REQUEST",
+        "CANCEL_SUCCESS",
+        "CANCEL_FAILURE",
+        "CANCEL_REQUEST"
+      ]
+    },
+    "TransactionSessionResult": {
+      "type": "string",
+      "enum": [
+        "AUTHORIZATION_SUCCESS",
+        "AUTHORIZATION_FAILURE",
+        "AUTHORIZATION_REQUEST",
+        "AUTHORIZATION_ACTION_REQUIRED",
+        "CHARGE_SUCCESS",
+        "CHARGE_FAILURE",
+        "CHARGE_REQUEST",
+        "CHARGE_ACTION_REQUIRED"
+      ]
+    }
+  }
+}

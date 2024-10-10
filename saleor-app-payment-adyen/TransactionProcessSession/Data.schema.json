@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/TransactionProcessSession/Data",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "paymentDetailsResponse": { "$ref": "/schemas/definitions#/$defs/JSON" },
+    "errors": { "$ref": "/schemas/definitions#/$defs/SyncWebhookAppErrors" }
+  }
+}

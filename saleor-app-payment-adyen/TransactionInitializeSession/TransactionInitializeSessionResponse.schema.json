@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/TransactionInitializeSession/TransactionInitializeSessionResponse",
+  "type": "object",
+  "required": ["result", "amount"],
+  "properties": {
+    "actions": {
+      "$ref": "/schemas/definitions#/$defs/TransactionActions"
+    },
+    "amount": {
+      "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
+    },
+    "data": {
+      "$ref": "/schemas/TransactionInitializeSession/Data"
+    },
+    "externalUrl": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "pspReference": {
+      "type": "string"
+    },
+    "result": {
+      "$ref": "/schemas/definitions#/$defs/TransactionSessionResult"
+    },
+    "time": {
+      "$ref": "/schemas/definitions#/$defs/DateTime"
+    }
+  },
+  "additionalProperties": false
+}
