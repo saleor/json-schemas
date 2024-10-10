@@ -5,7 +5,7 @@
   "required": [],
   "properties": {
     "amount": {
-      "$ref": "/saleor/definitions.json#/$defs/PositiveDecimal"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/PositiveDecimal"
     },
     "externalUrl": {
       "type": "string",
@@ -21,7 +21,7 @@
       "$ref": "#/$defs/TransactionRefundRequestedAllowedResult"
     },
     "time": {
-      "$ref": "/saleor/definitions.json#/$defs/DateTime"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/DateTime"
     }
   },
   "additionalProperties": false,

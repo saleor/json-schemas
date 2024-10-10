@@ -5,10 +5,10 @@
   "additionalProperties": true,
   "properties": {
     "paymentResponse": {
-      "$ref": "/saleor-app-payment-adyen/definitions.json#/JSON"
+      "$ref": "/json-schemas/saleor-app-payment-adyen/definitions.json#/JSON"
     },
     "errors": {
-      "$ref": "/saleor-app-payment-adyen/definitions.json#/SyncWebhookAppErrors"
+      "$ref": "/json-schemas/saleor-app-payment-adyen/definitions.json#/SyncWebhookAppErrors"
     }
   },
   "required": ["paymentResponse"]

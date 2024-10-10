@@ -4,7 +4,7 @@
   "type": "object",
   "additionalProperties": true,
   "properties": {
-    "paymentDetailsResponse": { "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/JSON" },
-    "errors": { "$ref": "/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors" }
+    "paymentDetailsResponse": { "$ref": "/json-schemas/saleor-app-payment-adyen/definitions.json#/$defs/JSON" },
+    "errors": { "$ref": "/json-schemas/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors" }
   }
 }

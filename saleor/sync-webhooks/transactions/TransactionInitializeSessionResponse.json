@@ -5,13 +5,13 @@
   "required": ["result", "amount"],
   "properties": {
     "actions": {
-      "$ref": "/saleor/definitions.json#/$defs/TransactionActions"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/TransactionActions"
     },
     "amount": {
-      "$ref": "/saleor/definitions.json#/$defs/PositiveDecimal"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/PositiveDecimal"
     },
     "data": {
-      "$ref": "/saleor/definitions.json#/$defs/JSON"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/JSON"
     },
     "externalUrl": {
       "type": "string"
@@ -23,10 +23,10 @@
       "type": "string"
     },
     "result": {
-      "$ref": "/saleor/definitions.json#/$defs/TransactionSessionResult"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/TransactionSessionResult"
     },
     "time": {
-      "$ref": "/saleor/definitions.json#/$defs/DateTime"
+      "$ref": "/json-schemas/saleor/definitions.json#/$defs/DateTime"
     }
   },
   "additionalProperties": false
