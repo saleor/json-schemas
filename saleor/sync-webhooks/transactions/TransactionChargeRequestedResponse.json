@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "/schemas/TransactionChargeRequested/TransactionChargeRequestedResponse",
+  "$id": "https://raw.githubusercontent.com/saleor/json-schemas/refs/heads/main/saleor/sync-webhooks/transactions/TransactionChargeRequestedResponse.json",
   "anyOf": [
     {
       "type": "object",

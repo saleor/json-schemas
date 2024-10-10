@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "/schemas/TransactionInitializeSession/Data",
+  "$id": "https://raw.githubusercontent.com/saleor/json-schemas/refs/heads/main/saleor-app-payment-adyen/TransactionInitializeSession/Data.json",
   "type": "object",
   "additionalProperties": true,
   "properties": {
