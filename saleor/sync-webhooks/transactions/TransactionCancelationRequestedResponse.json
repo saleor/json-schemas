@@ -1,17 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "/schemas/TransactionProcessSession/TransactionProcessSessionResponse",
+  "$id": "/schemas/TransactionCancelationRequestedResponse",
   "type": "object",
-  "required": ["result", "amount"],
+  "required": [],
   "properties": {
-    "actions": {
-      "$ref": "/schemas/definitions#/$defs/TransactionActions"
-    },
     "amount": {
       "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
-    },
-    "data": {
-      "$ref": "/schemas/TransactionProcessSession/Data"
     },
     "externalUrl": {
       "type": "string"
@@ -23,11 +17,17 @@
       "type": "string"
     },
     "result": {
-      "$ref": "/schemas/definitions#/$defs/TransactionSessionResult"
+      "$ref": "#/$defs/TransactionCancelationRequestedAllowedResult"
     },
     "time": {
       "$ref": "/schemas/definitions#/$defs/DateTime"
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$defs": {
+    "TransactionCancelationRequestedAllowedResult": {
+      "type": "string",
+      "enum": ["CANCEL_SUCCESS", "CANCEL_FAILURE"]
+    }
+  }
 }

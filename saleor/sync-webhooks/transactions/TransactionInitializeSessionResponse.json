@@ -11,7 +11,7 @@
       "$ref": "/schemas/definitions#/$defs/PositiveDecimal"
     },
     "data": {
-      "$ref": "/schemas/TransactionInitializeSession/Data"
+      "$ref": "/schemas/definitions#/$defs/JSON"
     },
     "externalUrl": {
       "type": "string"
