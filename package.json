@@ -1,8 +1,8 @@
 {
   "name": "saleor-schemastore",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
+  "description": "JSON Schema definitions for Saleor",
+  "homepage": "http://saleor.io/",
+  "author": "Saleor Commerce",
   "license": "BSD-3-Clause"
 }
