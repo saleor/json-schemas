@@ -26,7 +26,6 @@
   "additionalProperties": false,
   "$defs": {
     "TransactionRefundRequestedAllowedResult": {
-      "type": "string",
       "enum": ["REFUND_SUCCESS", "REFUND_FAILURE"]
     }
   }

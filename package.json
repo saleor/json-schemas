@@ -12,10 +12,15 @@
     "prettier": "^3.3.3"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "jsonschema lint --fix ./saleor ./saleor-app-payment-adyen"
   },
   "lint-staged": {
-    "*.(json|md|yaml)": "prettier --write",
-    "!(package).json": "jsonschema fmt"
+    "./package.json": "prettier --write",
+    "*.{md,yaml}": "prettier --write",
+    "!(*package).json": [
+      "jsonschema fmt",
+      "prettier --write"
+    ]
   }
 }

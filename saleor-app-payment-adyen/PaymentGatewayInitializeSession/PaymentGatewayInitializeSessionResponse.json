@@ -13,7 +13,6 @@
               "type": "string"
             },
             "environment": {
-              "type": "string",
               "enum": ["LIVE", "TEST"]
             },
             "errors": {
@@ -22,8 +21,7 @@
             "paymentMethodsResponse": {
               "$ref": "saleor-app-payment-adyen/definitions.json#/$defs/JSON"
             }
-          },
-          "additionalProperties": true
+          }
         },
         {
           "type": "object",

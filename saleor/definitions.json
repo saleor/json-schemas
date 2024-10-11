@@ -6,9 +6,7 @@
       "format": "date-time"
     },
     "JSON": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": true
+      "type": "object"
     },
     "PositiveDecimal": {
       "type": "number",

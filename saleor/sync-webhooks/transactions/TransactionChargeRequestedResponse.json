@@ -39,7 +39,6 @@
   ],
   "$defs": {
     "TransactionChargeRequestedAllowedResult": {
-      "type": "string",
       "enum": ["CHARGE_SUCCESS", "CHARGE_FAILURE"]
     }
   }

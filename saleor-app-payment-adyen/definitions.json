@@ -6,9 +6,7 @@
       "format": "date-time"
     },
     "JSON": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": true
+      "type": "object"
     },
     "PositiveDecimal": {
       "type": "number",
@@ -40,22 +38,18 @@
       "items": {
         "anyOf": [
           {
-            "type": "string",
             "const": "CHARGE"
           },
           {
-            "type": "string",
             "const": "REFUND"
           },
           {
-            "type": "string",
             "const": "CANCEL"
           }
         ]
       }
     },
     "TransactionEventType": {
-      "type": "string",
       "enum": [
         "AUTHORIZATION_SUCCESS",
         "AUTHORIZATION_FAILURE",
@@ -75,7 +69,6 @@
       ]
     },
     "TransactionSessionResult": {
-      "type": "string",
       "enum": [
         "AUTHORIZATION_SUCCESS",
         "AUTHORIZATION_FAILURE",

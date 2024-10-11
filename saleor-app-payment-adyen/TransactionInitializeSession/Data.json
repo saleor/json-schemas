@@ -9,6 +9,5 @@
     "paymentResponse": {
       "$ref": "saleor-app-payment-adyen/definitions.json#/JSON"
     }
-  },
-  "additionalProperties": true
+  }
 }

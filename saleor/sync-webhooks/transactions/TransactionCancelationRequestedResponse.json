@@ -25,7 +25,6 @@
   "additionalProperties": false,
   "$defs": {
     "TransactionCancelationRequestedAllowedResult": {
-      "type": "string",
       "enum": ["CANCEL_SUCCESS", "CANCEL_FAILURE"]
     }
   }
