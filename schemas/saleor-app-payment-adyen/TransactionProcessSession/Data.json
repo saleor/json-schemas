@@ -3,10 +3,10 @@
   "type": "object",
   "properties": {
     "errors": {
-      "$ref": "saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
+      "$ref": "schemas/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
     },
     "paymentDetailsResponse": {
-      "$ref": "saleor-app-payment-adyen/definitions.json#/$defs/JSON"
+      "$ref": "schemas/definitions.json#/$defs/JSON"
     }
   }
 }

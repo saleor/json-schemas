@@ -4,10 +4,10 @@
   "required": ["paymentResponse"],
   "properties": {
     "errors": {
-      "$ref": "saleor-app-payment-adyen/definitions.json#/SyncWebhookAppErrors"
+      "$ref": "schemas/saleor-app-payment-adyen/definitions.json#/$defs/SyncWebhookAppErrors"
     },
     "paymentResponse": {
-      "$ref": "saleor-app-payment-adyen/definitions.json#/JSON"
+      "$ref": "schemas/definitions.json#/$defs/JSON"
     }
   }
 }
