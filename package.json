@@ -13,12 +13,11 @@
   },
   "scripts": {
     "prepare": "husky",
-    "lint": "jsonschema lint --fix ./saleor ./saleor-app-payment-adyen"
+    "lint": "jsonschema lint --fix ./schemas"
   },
   "lint-staged": {
-    "./package.json": "prettier --write",
-    "*.{md,yaml}": "prettier --write",
-    "!(*package).json": [
+    "*.{json,md,yaml}": "prettier --write",
+    "/schemas/**/*.json": [
       "jsonschema fmt",
       "prettier --write"
     ]
