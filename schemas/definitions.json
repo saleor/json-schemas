@@ -14,18 +14,9 @@
     },
     "TransactionActions": {
       "type": "array",
+      "uniqueItems": true,
       "items": {
-        "anyOf": [
-          {
-            "const": "CHARGE"
-          },
-          {
-            "const": "REFUND"
-          },
-          {
-            "const": "CANCEL"
-          }
-        ]
+        "enum": ["CHARGE", "REFUND", "CANCEL"]
       }
     },
     "TransactionEventType": {

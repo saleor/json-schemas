@@ -13,33 +13,63 @@
     },
     {
       "type": "object",
-      "required": ["result", "amount", "message", "pspReference"],
+      "required": ["result", "amount", "pspReference"],
       "properties": {
+        "pspReference": {
+          "type": "string",
+          "min": 1
+        },
+        "result": {
+          "const": "CHARGE_SUCCESS"
+        },
         "amount": {
           "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
         },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
+        },
         "externalUrl": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         },
         "message": {
           "type": "string"
         },
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["result", "pspReference"],
+      "properties": {
         "pspReference": {
-          "type": "string"
+          "type": "string",
+          "min": 1
         },
         "result": {
-          "$ref": "#/$defs/TransactionChargeRequestedAllowedResult"
+          "const": "CHARGE_FAILURE"
+        },
+        "amount": {
+          "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
         },
         "time": {
           "$ref": "schemas/definitions.json#/$defs/DateTime"
+        },
+        "externalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "message": {
+          "type": "string"
+        },
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
         }
       },
       "additionalProperties": false
     }
-  ],
-  "$defs": {
-    "TransactionChargeRequestedAllowedResult": {
-      "enum": ["CHARGE_SUCCESS", "CHARGE_FAILURE"]
-    }
-  }
+  ]
 }

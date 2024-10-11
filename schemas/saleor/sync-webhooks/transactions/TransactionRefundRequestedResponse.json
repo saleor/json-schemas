@@ -1,32 +1,75 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
-  "required": [],
-  "properties": {
-    "amount": {
-      "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
+  "anyOf": [
+    {
+      "type": "object",
+      "required": ["pspReference"],
+      "properties": {
+        "pspReference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
-    "externalUrl": {
-      "type": "string",
-      "format": "uri"
+    {
+      "type": "object",
+      "required": ["pspReference", "result", "amount"],
+      "properties": {
+        "pspReference": {
+          "type": "string",
+          "min": 1
+        },
+        "result": {
+          "const": "REFUND_SUCCESS"
+        },
+        "amount": {
+          "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
+        },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
+        },
+        "externalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "message": {
+          "type": "string"
+        },
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        }
+      },
+      "additionalProperties": false
     },
-    "message": {
-      "type": "string"
-    },
-    "pspReference": {
-      "type": "string"
-    },
-    "result": {
-      "$ref": "#/$defs/TransactionRefundRequestedAllowedResult"
-    },
-    "time": {
-      "$ref": "schemas/definitions.json#/$defs/DateTime"
+    {
+      "type": "object",
+      "required": ["result", "pspReference"],
+      "properties": {
+        "pspReference": {
+          "type": "string",
+          "min": 1
+        },
+        "result": {
+          "const": "REFUND_FAILURE"
+        },
+        "amount": {
+          "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
+        },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
+        },
+        "externalUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "message": {
+          "type": "string"
+        },
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        }
+      },
+      "additionalProperties": false
     }
-  },
-  "additionalProperties": false,
-  "$defs": {
-    "TransactionRefundRequestedAllowedResult": {
-      "enum": ["REFUND_SUCCESS", "REFUND_FAILURE"]
-    }
-  }
+  ]
 }
