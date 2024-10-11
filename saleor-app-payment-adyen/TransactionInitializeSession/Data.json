@@ -1,15 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://saleor.github.io/json-schemas/saleor-app-payment-adyen/TransactionInitializeSession/Data.json",
   "type": "object",
-  "additionalProperties": true,
+  "required": ["paymentResponse"],
   "properties": {
-    "paymentResponse": {
-      "$ref": "/json-schemas/saleor-app-payment-adyen/definitions.json#/JSON"
-    },
     "errors": {
-      "$ref": "/json-schemas/saleor-app-payment-adyen/definitions.json#/SyncWebhookAppErrors"
+      "$ref": "saleor-app-payment-adyen/definitions.json#/SyncWebhookAppErrors"
+    },
+    "paymentResponse": {
+      "$ref": "saleor-app-payment-adyen/definitions.json#/JSON"
     }
   },
-  "required": ["paymentResponse"]
+  "additionalProperties": true
 }

@@ -1,17 +1,16 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://saleor.github.io/json-schemas/saleor/sync-webhooks/transactions/TransactionInitializeSessionResponse.json",
   "type": "object",
   "required": ["result", "amount"],
   "properties": {
     "actions": {
-      "$ref": "/json-schemas/saleor/definitions.json#/$defs/TransactionActions"
+      "$ref": "saleor/definitions.json#/$defs/TransactionActions"
     },
     "amount": {
-      "$ref": "/json-schemas/saleor/definitions.json#/$defs/PositiveDecimal"
+      "$ref": "saleor/definitions.json#/$defs/PositiveDecimal"
     },
     "data": {
-      "$ref": "/json-schemas/saleor/definitions.json#/$defs/JSON"
+      "$ref": "saleor/definitions.json#/$defs/JSON"
     },
     "externalUrl": {
       "type": "string"
@@ -23,10 +22,10 @@
       "type": "string"
     },
     "result": {
-      "$ref": "/json-schemas/saleor/definitions.json#/$defs/TransactionSessionResult"
+      "$ref": "saleor/definitions.json#/$defs/TransactionSessionResult"
     },
     "time": {
-      "$ref": "/json-schemas/saleor/definitions.json#/$defs/DateTime"
+      "$ref": "saleor/definitions.json#/$defs/DateTime"
     }
   },
   "additionalProperties": false

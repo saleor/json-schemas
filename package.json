@@ -4,5 +4,18 @@
   "description": "JSON Schema definitions for Saleor",
   "homepage": "http://saleor.io/",
   "author": "Saleor Commerce",
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@sourcemeta/jsonschema": "^4.1.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
+  },
+  "scripts": {
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.(json|md|yaml)": "prettier --write",
+    "!(package).json": "jsonschema fmt"
+  }
 }

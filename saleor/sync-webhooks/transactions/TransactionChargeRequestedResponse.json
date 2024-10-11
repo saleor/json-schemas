@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://saleor.github.io/json-schemas/saleor/sync-webhooks/transactions/TransactionChargeRequestedResponse.json",
   "anyOf": [
     {
       "type": "object",
@@ -17,7 +16,7 @@
       "required": ["result", "amount", "message"],
       "properties": {
         "amount": {
-          "$ref": "/json-schemas/saleor/definitions.json#/$defs/PositiveDecimal"
+          "$ref": "saleor/definitions.json#/$defs/PositiveDecimal"
         },
         "externalUrl": {
           "type": "string"
@@ -32,7 +31,7 @@
           "$ref": "#/$defs/TransactionChargeRequestedAllowedResult"
         },
         "time": {
-          "$ref": "/json-schemas/saleor/definitions.json#/$defs/DateTime"
+          "$ref": "saleor/definitions.json#/$defs/DateTime"
         }
       },
       "additionalProperties": false
