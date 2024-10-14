@@ -35,6 +35,49 @@ https://saleor.github.io/json-schemas/schemas/saleor/sync-webhooks/transactions/
 
 Here are some examples that can be used when developing Saleor apps or storefront for Saleor:
 
+### TypeScript codegen: [`json-schema-to-typescript`](https://www.npmjs.com/package/json-schema-to-typescript)
+
+Using `json-schema-to-typescript` you can generate TypeScript types based on Saleor JSON Schemas to use in your project:
+
+```bash
+pnpm i -g json-schema-to-typescript
+json2ts -i 'schemas/**/!(*definitions).json' -o ./types
+```
+
+> [!TIP]
+> This codegen supports [discriminated unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions) for more strict type checking (see example)
+
+<details>
+  <summary><b>👉 Example output</b></summary>
+
+```ts
+export type TransactionCancelationRequestedResponse =
+  | {
+      pspReference: string;
+    }
+  | {
+      actions?: TransactionActions;
+      amount: number;
+      externalUrl?: string;
+      message?: string;
+      pspReference: string;
+      result: "CANCEL_SUCCESS";
+      time?: string;
+    }
+  | {
+      actions?: TransactionActions;
+      amount?: number;
+      externalUrl?: string;
+      message?: string;
+      pspReference: string;
+      result: "CANCEL_FAILURE";
+      time?: string;
+    };
+export type TransactionActions = ("CHARGE" | "REFUND" | "CANCEL")[];
+```
+
+</details>
+
 ### Multi-language codegen: [`quicktype`](https://github.com/glideapps/quicktype)
 
 Quicktype generates strongly-typed models and serializes from JSON Schemas in many programming languages (e.g. Ruby, Flow, Rust, Kotlin, Python, Swift, etc.).
@@ -46,6 +89,23 @@ mkdir types
 quicktype -s schema schemas/saleor/**/*.json -o types/saleor.ts --lang typescript
 ```
 
+<details>
+  <summary><b>👉 Example output</b></summary>
+
+```ts
+export interface TransactionCancelationRequestedResponse {
+  pspReference: string;
+  actions?: Definition[];
+  amount?: number;
+  externalUrl?: string;
+  message?: string;
+  result?: TransactionCancelationRequestedResponseResult;
+  time?: Date;
+}
+```
+
+</details>
+
 For TypeScript Quicktype can also generate `zod` and `effect` schemas for parsing data to match JSON Schema specification:
 
 ```bash
@@ -55,14 +115,28 @@ quicktype -s schema schemas/saleor/**/*.json -o types/saleor.ts --lang typescrip
 quicktype -s schema schemas/saleor/**/*.json -o types/saleor.ts --lang typescript-effect-schema
 ```
 
-### TypeScript codegen: [`json-schema-to-typescript`](https://www.npmjs.com/package/json-schema-to-typescript)
+> [!NOTE]
+> This codegen doesn't support [discriminated unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions) in TypeScript
 
-Using `json-schema-to-typescript` you can generate TypeScript types based on Saleor JSON Schemas to use in your project:
+<details>
+  <summary><b>👉 Example output</b></summary>
 
-```bash
-pnpm i -g json-schema-to-typescript
-json2ts -i 'schemas/**/!(*definitions).json' -o <your_folder_path>
+```ts
+export const TransactionCancelationRequestedResponseSchema = z.object({
+  pspReference: z.string(),
+  actions: z.array(DefinitionSchema).optional(),
+  amount: z.number().optional(),
+  externalUrl: z.string().optional(),
+  message: z.string().optional(),
+  result: TransactionCancelationRequestedResponseResultSchema.optional(),
+  time: z.coerce.date().optional(),
+});
+export type TransactionCancelationRequestedResponse = z.infer<
+  typeof TransactionCancelationRequestedResponseSchema
+>;
 ```
+
+</details>
 
 ## Development
 
