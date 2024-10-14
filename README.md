@@ -1,28 +1,68 @@
 # Saleor JSON Schemas
 
-This repository includes JSON schemas used in Saleor projects.
+## Overview
+
+This repository contains JSON schemas used in various Saleor projects. These schemas are written in the [2020-12 JSON Schema specification](https://json-schema.org/draft/2020-12/json-schema-core).
+
+## Contents
 
 - [Saleor sync webhook response payloads](./saleor/sync-webhooks/)
-  - Saleor expects responses from sync webhook to be in a specific format
-  - Learn more about [Saleor sync webhooks](https://docs.saleor.io/developer/extending/webhooks/synchronous-events/overview)
+  - Defines the expected format for responses from synchronous webhooks in Saleor.
+  - Further Reading: [Saleor Sync Webhooks Documentation](https://docs.saleor.io/developer/extending/webhooks/synchronous-events/overview)
 - [Adyen App `data` parameter payloads](./saleor-app-payment-adyen/)
-  - Adyen app uses `data` parameter on some mutations to pass additional data used by Adyen SDK
-  - Learn more about [Adyen App storefront integration](https://docs.saleor.io/developer/app-store/apps/adyen/storefront#performing-additional-actions-optional)
+  - Specifies the structure of the `data` parameter used in certain mutations for the Adyen SDK.
+  - Further Reading: [Adyen App Storefront Integration Guide](https://docs.saleor.io/developer/app-store/apps/adyen/storefront#performing-additional-actions-optional)
 
 Schemas in this repository are written in [2020-12 JSON Schema specification](https://json-schema.org/draft/2020-12/json-schema-core)
 
 ## Using JSON Schemas
 
-### TypeScript
+You can access these schemas in two ways:
 
-#### [`json-schema-to-typescript`](https://www.npmjs.com/package/json-schema-to-typescript)
+- Clone the repository locally:
+
+```bash
+git clone https://github.com/saleor/json-schemas.git
+```
+
+- Use the deployed schemas on GitHub pages:
+
+```
+https://saleor.github.io/json-schemas/schemas/saleor/sync-webhooks/transactions/TransactionRefundRequestedResponse.json
+```
+
+[JSON Schema docs](https://json-schema.org/tools?query=&sortBy=name&sortOrder=ascending&groupBy=toolingTypes&licenses=&languages=&drafts=&toolingTypes=&environments=) have a list of available tools you can use schemas for.
+
+Here are some examples that can be used when developing Saleor apps or storefront for Saleor:
+
+### Multi-language codegen: [`quicktype`](https://github.com/glideapps/quicktype)
+
+Quicktype generates strongly-typed models and serializes from JSON Schemas in many programming languages (e.g. Ruby, Flow, Rust, Kotlin, Python, Swift, etc.).
+
+```bash
+pnpm i -g quicktype
+# Generate all Saleor schemas
+mkdir types
+quicktype -s schema schemas/saleor/**/*.json -o types/saleor.ts --lang typescript
+```
+
+For TypeScript Quicktype can also generate `zod` and `effect` schemas for parsing data to match JSON Schema specification:
+
+```bash
+# Zod
+quicktype -s schema schemas/saleor/**/*.json -o types/saleor.ts --lang typescript-zod
+# Effect
+quicktype -s schema schemas/saleor/**/*.json -o types/saleor.ts --lang typescript-effect-schema
+```
+
+### TypeScript codegen: [`json-schema-to-typescript`](https://www.npmjs.com/package/json-schema-to-typescript)
+
+Using `json-schema-to-typescript` you can generate TypeScript types based on Saleor JSON Schemas to use in your project:
 
 ```bash
 pnpm i -g json-schema-to-typescript
 json2ts -i 'schemas/**/!(*definitions).json' -o <your_folder_path>
 ```
-
-Some schemas include specific definitions for `json-schema-to-typescript` so that it generates correct discriminating unions. For example
 
 ## Development
 
