@@ -1,32 +1,68 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "required": ["result", "amount"],
-  "properties": {
-    "actions": {
-      "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+  "anyOf": [
+    {
+      "type": "object",
+      "required": ["result", "amount"],
+      "properties": {
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        },
+        "amount": {
+          "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
+        },
+        "data": {
+          "$ref": "schemas/definitions.json#/$defs/JSON"
+        },
+        "externalUrl": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "pspReference": {
+          "type": "string"
+        },
+        "result": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionSessionResultPspOptional"
+        },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
+        }
+      },
+      "additionalProperties": false
     },
-    "amount": {
-      "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
-    },
-    "data": {
-      "$ref": "schemas/definitions.json#/$defs/JSON"
-    },
-    "externalUrl": {
-      "type": "string"
-    },
-    "message": {
-      "type": "string"
-    },
-    "pspReference": {
-      "type": "string"
-    },
-    "result": {
-      "$ref": "schemas/definitions.json#/$defs/TransactionSessionResult"
-    },
-    "time": {
-      "$ref": "schemas/definitions.json#/$defs/DateTime"
+    {
+      "type": "object",
+      "required": ["result", "amount", "pspReference"],
+      "properties": {
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        },
+        "amount": {
+          "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
+        },
+        "data": {
+          "$ref": "schemas/definitions.json#/$defs/JSON"
+        },
+        "externalUrl": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "pspReference": {
+          "type": "string"
+        },
+        "result": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionSessionResultPspRequired"
+        },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
+        }
+      },
+      "additionalProperties": false
     }
-  },
-  "additionalProperties": false
+  ]
 }

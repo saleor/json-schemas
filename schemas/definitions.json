@@ -49,6 +49,22 @@
         "CHARGE_REQUEST",
         "CHARGE_ACTION_REQUIRED"
       ]
+    },
+    "TransactionSessionResultPspOptional": {
+      "enum": [
+        "AUTHORIZATION_ACTION_REQUIRED",
+        "CHARGE_ACTION_REQUIRED",
+        "CHARGE_FAILURE",
+        "AUTHORIZATION_FAILURE"
+      ]
+    },
+    "TransactionSessionResultPspRequired": {
+      "enum": [
+        "CHARGE_SUCCESS",
+        "AUTHORIZATION_SUCCESS",
+        "CHARGE_REQUEST",
+        "AUTHORIZATION_REQUEST"
+      ]
     }
   }
 }

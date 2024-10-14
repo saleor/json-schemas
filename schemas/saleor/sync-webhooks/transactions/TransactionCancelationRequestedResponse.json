@@ -15,18 +15,11 @@
       "type": "object",
       "required": ["result", "amount", "pspReference"],
       "properties": {
-        "pspReference": {
-          "type": "string",
-          "min": 1
-        },
-        "result": {
-          "const": "CANCEL_SUCCESS"
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
         },
         "amount": {
           "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
-        },
-        "time": {
-          "$ref": "schemas/definitions.json#/$defs/DateTime"
         },
         "externalUrl": {
           "type": "string",
@@ -35,8 +28,15 @@
         "message": {
           "type": "string"
         },
-        "actions": {
-          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        "pspReference": {
+          "type": "string",
+          "min": 1
+        },
+        "result": {
+          "const": "CANCEL_SUCCESS"
+        },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
         }
       },
       "additionalProperties": false
@@ -45,18 +45,11 @@
       "type": "object",
       "required": ["result", "pspReference"],
       "properties": {
-        "pspReference": {
-          "type": "string",
-          "min": 1
-        },
-        "result": {
-          "const": "CANCEL_FAILURE"
+        "actions": {
+          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
         },
         "amount": {
           "$ref": "schemas/definitions.json#/$defs/PositiveDecimal"
-        },
-        "time": {
-          "$ref": "schemas/definitions.json#/$defs/DateTime"
         },
         "externalUrl": {
           "type": "string",
@@ -65,8 +58,15 @@
         "message": {
           "type": "string"
         },
-        "actions": {
-          "$ref": "schemas/definitions.json#/$defs/TransactionActions"
+        "pspReference": {
+          "type": "string",
+          "min": 1
+        },
+        "result": {
+          "const": "CANCEL_FAILURE"
+        },
+        "time": {
+          "$ref": "schemas/definitions.json#/$defs/DateTime"
         }
       },
       "additionalProperties": false
