@@ -1,5 +1,8 @@
 # Saleor JSON Schemas
 
+> [!TIP]
+> Questions or issues? Check our [discord](https://discord.gg/H52JTZAtSH) channel for help.
+
 ## Overview
 
 This repository contains JSON schemas used in various Saleor projects. These schemas are written in the [2020-12 JSON Schema specification](https://json-schema.org/draft/2020-12/json-schema-core).
